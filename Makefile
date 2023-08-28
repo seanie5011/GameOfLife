@@ -1,0 +1,2 @@
+all:
+	g++ main.cpp -o program.exe -DSFML_STATIC -IC:\src\SFML-2.6.0-sources\SFML\include -LC:\src\SFML-2.6.0-sources\SFML\lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lgdi32
