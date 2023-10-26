@@ -5,13 +5,8 @@
 
 // function used to account for wrapped world
 int wrapValue(int v, int vMax) {
-    int remainder = v % vMax;
     // have to account for if remainder is negative
-    if (remainder < 0) {
-        return vMax - remainder;
-    } else {
-        return remainder;
-    }
+    return ((v % vMax) + vMax) % vMax;
 }
 
 int main()
@@ -20,14 +15,14 @@ int main()
     std::srand(std::time(NULL));
 
     // constants for building grid and cells
-    const int CELL_SIZE = 30;  // size of each cell in pixels
+    const int CELL_SIZE = 30 / 2;  // size of each cell in pixels
     const sf::Vector2f CELL_SIZE_VECTOR(CELL_SIZE, CELL_SIZE);  // used to define the width and height of a cell when creating a shape
-    const int GRID_WIDTH = 30;  // width of grid in cells
-    const int GRID_HEIGHT = 20;  // height of grid in cells
+    const int GRID_WIDTH = 30 * 3;  // width of grid in cells
+    const int GRID_HEIGHT = 20 * 3;  // height of grid in cells
     const int N_CELLS = GRID_HEIGHT * GRID_WIDTH;
 
     // use delay between timesteps
-    const int DELAY = 300;
+    const int DELAY = 100;
 
     // build grid using integer arrays
     // have two grids, one is the grid in the next timestep, the other is the current grid
